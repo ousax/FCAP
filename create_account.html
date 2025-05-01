@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Créer un compte - FCA Shop</title>
+  <link rel="stylesheet" href="create_account.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+<style>
+  body{
+    background-image: url("images/pexels-iriser-1366957.jpg");
+    background-size: cover;
+  }
+</style>
+<body class="login-page">
+  <div class="login-container">
+    <h1>Veuillez rensigner les champs</h1>
+    <form id="loginForm" method="post">
+      <center style="font-weight: bold">Nom</center>
+      <input type="text" id="username" placeholder="Nom" required />
+      <center style="font-weight: bold">Email</center>
+      <input type="email" id="email" placeholder="Email" required />
+      <center style="font-weight: bold">Mot de passe</center>
+      <input type="password" id="mdp" placeholder="#####################" required />
+      <center style="font-weight: bold">Confirmer votre mot de passe</center>
+      <input type="password" id="confirm_mdp" placeholder="#####################" required />
+      <button type="submit">Créér</button>
+      <p id="loginMessage"></p>
+    </form>
+    
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('loginForm');
+    const resetLink = document.getElementById('resetPassword');
+    const message = document.getElementById('loginMessage');
+  
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let nom = document.getElementById('username').value;
+        let email = document.getElementById('email').value;
+        let mdp = document.getElementById('mdp').value;
+        let confirm_mdp = document.getElementById('confirm_mdp').value;
+        if (nom && email && mdp && confirm_mdp) {
+          if (confirm_mdp===mdp){
+            if(mdp.toWellFormed(Intl).length  > 6){
+              function GenererId(){
+                const Idn = Math.round(Math.random()*23999);
+                alert("Votre session a été créee le "+ new Date()+" Votre Identifiant: "+Idn);
+              }
+              GenererId();
+              window.location.href = 'home.html';
+            }
+            else{
+              message.textContent = 'Le mot de passe est trop court, veuillez utiliser une combinaison des characters speciaux ';
+              message.style.color = 'red';
+            }
+          }
+          else{
+            message.textContent = 'Les mot de passes saisis ne sont pas identiques';
+            message.style.color = 'red';
+          }
+        } else {
+          message.textContent = 'Une erreur est servenue';
+          message.style.color = 'red';
+        }
+      });
+    }
+
+  });
+  </script>
+</body>
+</html>

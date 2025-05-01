@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FCAShop Home</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+  <header>
+    <h1>Soyez les bienvenus à notre shop🛍️</h1>
+    
+  </header>
+  
+  <main>
+    <div class="divMainSelect">
+      <select id="mainSelect">
+        <option id=0>Acceuil</option>
+        <option id=1>Profile</option>
+        <option id=2>Paramétres</option>
+        <option id=3>Déconnextion</option>
+      </select>
+    </div>
+    <div class="divTheme">
+      <button type="button" id="buttonTheme" value="light">Changer le thème </button>
+    </div>
+    <section class="products">
+      <div class="product">
+        <img src="https://via.placeholder.com/150" alt="Produit 1" />
+        <h3>Miel (l7OUR) Fkih ben saleh</h3>
+        <p>129.29DH par litre</p>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/150" alt="Produit 2" />
+        <h3>Chaussures Dima Maghrib</h3>
+        <p>19.43DH pair </p>
+        <p>2 pairs pour 35 DH</p>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/150" alt="Produit 3" />
+        <h3>Huile d'Olive Zaouit Cheikh</h3>
+        <p>120DH par litre </p>
+      </div>
+      <div class="product">
+        <img src="" alt="Produit 4" />
+        <h3>Dattes El Majhoul Errachdia</h3>
+        <p>220DH par KG</p>
+      </div>
+      <div class="product">
+        <img src="" alt="Produit 5" />
+        <h3>Le jus de dattes el mejhoul Errachidia</h3>
+        <p>225DH par litre</p>
+      </div>
+      <div class="product">
+        <img src="" alt="Produit 6" />
+        <h3>Huile d'argane Agadir</h3>
+        <p>325DH par litre</p>
+      </div>
+    </section>
+  </main>
+      <script>
+        theme = document.getElementById("buttonTheme")
+        theme.addEventListener("click", () => {
+          if(theme.value === "light"){
+            document.getElementsByClassName("divTheme").html = "<button type='button' id='buttonTheme' value='sombre'>theme changé</button>"
+            document.body.style.backgroundColor="black";
+            console.log(theme)
+          }
+          else{
+            document.getElementsByClassName("divTheme").html = "<button type='button' id='buttonTheme' value='light'>Changer le thème </button>"
+            document.body.style.backgroundColor="#f7f8fa";
+          }
+        })
+      </script>
+  <footer>
+    <p>Merci pour votre visite !</p>
+  </footer>
+</body>
+</html>
